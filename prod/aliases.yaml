@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostaliases-pod
+spec:
+  restartPolicy: Never
+  hostAliases:
+  - ip: "192.168.49.2"
+    hostnames:
+    - "hello-world.info"
+  containers:
+  - name: minikube
+    image: busybox:1.28
+    command:
+    - cat
+    args:
+    - "/etc/hosts"
